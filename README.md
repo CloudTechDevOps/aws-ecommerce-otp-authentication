@@ -15,10 +15,10 @@ mysql -h microservices.cuk1or8kdbv9.us-east-1.rds.amazonaws.com -u admin -pCloud
 ```
 - change the rds details inn app.py
 - create the environnmnet in server for python applicationn deploymnet
-  ```
+```
 python3 -m venv venv
 source venv/bin/activate
-  ```
+```
 - Install requriments.txt
 ```
 pip install -r requirements.txt
@@ -42,8 +42,7 @@ sudo systemctl enable  nginx
 - change the backend public in frontend index.html login and signup
 ```
 - // === Configuration ===
--     const SIGNUP_URL = 'http://backendip:5000/api/signup';
--     const LOGIN_URL  = 'http://backendip:5000/api/login';
+-       const API_BASE = "http://54.161.16.143:5000/api"; 
 ```
 - after this copyrhis  files to nginx path
 ```
