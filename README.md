@@ -5,7 +5,7 @@
   ```
   sudo yum update -y
   sudo  yum install python3-pip -y
-  sudo yum installl git -y
+  sudo yum install git -y
   sudo dnf install mariadb105-server -y
   ```
 - change the rds detils in ```app.py```
@@ -61,7 +61,7 @@ sudo systemctl status microapp
 
 ```
 sudo yum update -y
-sudo yum installl git -y
+sudo yum install git -y
 sudo  yum install nginx -y
 sudo systemctl start nginx
 sudo systemctl enable  nginx
