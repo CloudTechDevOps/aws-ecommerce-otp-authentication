@@ -39,6 +39,11 @@ def get_db_connection():
         database=db_config["database"],
         cursorclass=pymysql.cursors.DictCursor
     )
+# ---------------- HEALTH CHECK ----------------
+@app.route('/api/health', methods=['GET'])
+def health_check():
+    # ALB calls this every 30 seconds to verify the app is running
+    return jsonify({'status': 'healthy'}), 200
 
 # ---------------- SIGNUP LOGIC (2 STEPS) ----------------
 
@@ -137,4 +142,5 @@ def login_verify():
     return jsonify({"error": "Invalid or expired OTP"}), 401
 
 if __name__ == "__main__":
+
     app.run(host="0.0.0.0", port=5000, debug=True)
