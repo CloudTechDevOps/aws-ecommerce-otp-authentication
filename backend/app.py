@@ -39,7 +39,16 @@ def get_db_connection():
         database=db_config["database"],
         cursorclass=pymysql.cursors.DictCursor
     )
-
+###-------Health check ---------------------------
+@app.route("/api", methods=["GET"])
+@app.route("/api/", methods=["GET"])
+def api_root():
+    return jsonify({
+        "message": "API is running successfully",
+        "status": "healthy",
+        "service": "Google Store Backend",
+        "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    }), 200
 # ---------------- SIGNUP LOGIC (2 STEPS) ----------------
 
 @app.route("/api/signup/request", methods=["POST"])
@@ -137,4 +146,5 @@ def login_verify():
     return jsonify({"error": "Invalid or expired OTP"}), 401
 
 if __name__ == "__main__":
+
     app.run(host="0.0.0.0", port=5000, debug=True)
